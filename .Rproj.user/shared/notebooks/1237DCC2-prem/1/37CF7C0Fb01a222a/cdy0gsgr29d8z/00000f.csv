@@ -1,0 +1,9 @@
+"0","library(ggplot2)"
+"0","library(readr)"
+"0","soccer_data <- read.csv(""EPL_20_21.csv"")"
+"0","attach(soccer_data)"
+"2","The following object is masked from package:ggplot2:
+
+    Position
+
+"

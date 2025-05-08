@@ -1,0 +1,16 @@
+"0","ggplot(PASchools, aes(x = AdmitRate*100, y = AvgSAT)) +"
+"0","  geom_point(aes(color = HighDegree, shape = HighDegree)) +"
+"0","  scale_color_manual(values = c(""blue"", ""green"", ""purple"")) +"
+"0","  annotate('text', x = 31.08, y = 1353, label = 'Bucknell', color = ""#E87722"", vjust = 1.5) +"
+"0","  scale_x_continuous(labels = scales::label_dollar(prefix = """", suffix = ""%"")) + "
+"0","  labs(x = ""Admission Rate"", y = ""Average SAT"", color = ""Highest Available Degree"", "
+"0","       shape = ""Highest Available Degree"","
+"0","       title = ""Scatterplot of PA Colleges by Admission Rate, SAT, and Degree"")"
+"1","[1m[33mError[39m in `geom_point()`:[22m
+[38;5;232m[33m![38;5;232m Problem while computing aesthetics.
+[36mℹ[38;5;232m Error occurred in the 1st layer.[39m
+[1mCaused by error in `scale_f()`:[22m
+[38;5;232m[33m![38;5;232m A continuous variable cannot be mapped to the [32mshape[38;5;232m aesthetic.
+[36mℹ[38;5;232m Choose a different aesthetic or use `scale_shape_binned()`.[39m
+[90mRun `]8;;x-r-run:rlang::last_trace()rlang::last_trace()]8;;` to see where the error occurred.[39m
+"

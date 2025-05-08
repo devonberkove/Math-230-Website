@@ -1,0 +1,7 @@
+"0","assists_df <- data.frame(totalxA = sapply(teams, function(team) sum(team$xA*team$Matches)), Assists = sapply(teams, function(team) sum(team$Assists)), Passes = sapply(teams, function(team) sum(team$Passes_Attempted)), Names = names(teams))"
+"0",""
+"0","ggplot(assists_df, aes(area = Assists, fill = totalxA, label = Names)) +"
+"0","  geom_treemap() +"
+"0","  geom_treemap_text(color = ""white"", place = ""center"") +"
+"0","  scale_fill_gradientn(colors = palette(100)) +"
+"0","  labs(title = ""Treemap of Club by Total xA and Assists"", fill = ""Total xA"")"

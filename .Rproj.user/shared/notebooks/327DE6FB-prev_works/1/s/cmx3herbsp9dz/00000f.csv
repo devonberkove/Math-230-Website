@@ -1,0 +1,23 @@
+"0","library(ggplot2)"
+"0","library(treemapify)"
+"0","library(Lock5Data)"
+"2","
+Attaching package: ‘Lock5Data’
+
+"
+"2","The following object is masked _by_ ‘.GlobalEnv’:
+
+    CollegeScores
+
+"
+"0","data(mtcars)"
+"0","data(CollegeScores)"
+"0","CollegeScores <- CollegeScores[complete.cases(CollegeScores), ]"
+"0","CollegeScores$HighDegree <- factor(CollegeScores$HighDegree, levels = c(""0"", ""1"", ""2"", ""3"", ""4""),"
+"0","                                 labels = c(""No Degrees"", ""Certificate"", ""Associate"", ""Bachelors"","
+"0","                                            ""Graduate""), ordered = TRUE)"
+"0","CollegeScores$HighDegree <- factor(CollegeScores$HighDegree)"
+"0","PASchools <- CollegeScores[CollegeScores$State == ""PA"", ]"
+"0","library(ggdensity)"
+"0","data(""iris"")"
+"0","iris = iris[complete.cases(iris), ]"

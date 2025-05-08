@@ -1,0 +1,89 @@
+---
+title: "Previous Works"
+description: |
+  Below are some of my works that I have created, ranging from graphs to generative art!
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(ggplot2)
+library(treemapify)
+library(Lock5Data)
+data(mtcars)
+data(CollegeScores)
+CollegeScores <- CollegeScores[complete.cases(CollegeScores), ]
+CollegeScores$HighDegree <- factor(CollegeScores$HighDegree, levels = c("0", "1", "2", "3", "4"),
+                                 labels = c("No Degrees", "Certificate", "Associate", "Bachelors",
+                                            "Graduate"), ordered = TRUE)
+CollegeScores$HighDegree <- factor(CollegeScores$HighDegree)
+PASchools <- CollegeScores[CollegeScores$State == "PA", ]
+library(ggdensity)
+data("iris")
+iris = iris[complete.cases(iris), ]
+```
+
+### Generative Artworks 
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+  <img src="BucknellNebula.png" style="width: 30%; height: auto;">
+  <img src="GreenBlueSpiral.png" style="width: 30%; height: auto;">
+  <img src="PetriDish.png" style="width: 30%; height: auto;">
+</div>
+
+These images were created using the library aRtsy in R. The first piece used the function canvas_nebula with the colors of Bucknell University to make a nebula-like pattern, the second piece used the function canvas_function to create a blue and green spiral, and the third piece used the function canvas_petri with a black backround, white dish, and 25 iterations.  
+
+### Data Visualizations
+
+```{r}
+ggplot(mtcars, aes(area = hp, fill = mpg, label = rownames(mtcars))) +
+  geom_treemap() +
+  geom_treemap_text(color = "white", place = "center") +
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  labs(title = "Treemap of Cars by Horsepower and MPG", fill = "Miles per Gallon (mpg)")
+```
+
+This data visualization is a treemap that was created using the package treemapify in ggplot2 and the built in dataset mtcars. The treemap consists of two parts, a boxes area and color, where in this case the area refers to a cars horsepower and the color gradient refers to its miles per gallon. A larger area means a larger horsepower while the horse power of a car increases as the color goes from light to dark blue.
+
+```{r}
+ggplot(PASchools, aes(x = AdmitRate*100, y = AvgSAT)) +
+  geom_point(aes(color = HighDegree, shape = HighDegree)) +
+  scale_color_manual(values = c("blue", "green", "purple")) +
+  annotate('text', x = 31.08, y = 1353, label = 'Bucknell', color = "#E87722", vjust = 1.5) +
+  scale_x_reverse(labels = scales::label_dollar(prefix = "", suffix = "%")) + 
+  labs(x = "Admission Rate", y = "Average SAT", color = "Highest Available Degree", 
+       shape = "Highest Available Degree",
+       title = "Scatterplot of PA Colleges by Admission Rate, SAT, and Degree") +
+  theme_minimal()
+```
+
+The above scatterplot compares the admission rate against the average SAT for a selection of PA Schools by a school's highest available degree from the CollegeData set in R. In particular, it focuses on Bucknell University in comparison to all the other schools for each metric. Bucknell, like most schools, has its highest degree as a Graduate's degree, but has a lower acceptance rate and higher average SAT in comparison to most schools. This shows the exclusivity of Bucknell, making it one of the best schools academically in Pennsylvania.
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, fill = Species)) +
+  geom_hdr() +
+  geom_hdr_lines() +
+  geom_point(shape = 15) +
+  scale_fill_manual(values = c("violet", "skyblue", "orange")) +
+  xlab("Sepal Length") +
+  ylab("Petal Length") +
+  ggtitle("Density Plot of Sepal vs Petal Length by Species") +
+  theme_minimal()
+```
+
+This a density plot of three different species of flowers, setosa, versicolor, and viriginica based on its sepal and petal length. Each square represent a flower in the data set, and the lighter the shading around the squares, the higher percent of data points that are contained inside it. For the species setosa, most flower typically have petal lengths of around 1 and sepal lengths of around 5, whereas the species versicolor and virginica typically have petal lengths from 4 to 6 and sepal lengths from 5.5 to 7.
+
+### Confidence Interval Dashboard
+
+<div style="width: 100vw; margin-left: calc(-50vw + 50%);">
+  <iframe
+    src="https://abby-flynt.shinyapps.io/ConfidenceLevels_Dashboard_Team2/"
+    width="100%"
+    height="800px"
+    style="border:none;">
+  </iframe>
+</div>
+
+This is a dashboard on the topic of confidence intervals that was meant for intro stat students. In it, the user can switch between one confidence interval and multiple. For the single interval, the mean, confidence level, sample size, and standard deviation can all be changed to understand how changing each metric has an effect on the resulting confidence interval, along with an interpretation of the interval in order to teach the correct interpretations and the intuition behind them. For the multiple interval, users can change the sample size, mean, confidence level, and the number of intervals that are produced. This then creates the number of intervals with the inputs chosen under a normal curve with red intervals not containing the mean and green intervals containing it to show what a confidence level really means.

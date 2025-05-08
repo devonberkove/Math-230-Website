@@ -1,0 +1,4 @@
+"0","yellow_card_df <- data.frame(YellowCards = sapply(teams, function(team) sum(team$Yellow_Cards)), Club = names(teams))"
+"0","ggplot(yellow_card_df, aes(x = reorder(Club, YellowCards), y = YellowCards)) +"
+"0","  geom_bar(stat = ""identity"") +"
+"0","  theme(axis.text.x = element_text(angle = 60, hjust = 1))"

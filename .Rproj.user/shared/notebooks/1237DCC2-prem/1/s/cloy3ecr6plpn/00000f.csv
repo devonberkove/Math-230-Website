@@ -1,0 +1,7 @@
+"0","p <- ggplot(soccer_data, aes(x = Goals, y = xG, size = Goals)) +"
+"0","  geom_point() +"
+"0","  scale_x_log10() +"
+"0","  transition_states(Name, transition_length = 2, state_length = 1) +"
+"0","  labs(title = Name)"
+"2","Error: object 'Name' not found
+"

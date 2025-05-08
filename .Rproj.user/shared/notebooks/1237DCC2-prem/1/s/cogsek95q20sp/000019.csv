@@ -1,0 +1,8 @@
+"0","cards_df <- data.frame(YellowCards = sapply(teams, function(team) sum(team$Yellow_Cards)), RedCards = sapply(teams, function(team) sum(team$Red_Cards)),"
+"0","                       Names = names(teams))"
+"0",""
+"0","ggplot(cards_df, aes(area = YellowCards, fill = RedCards, label = Names)) +"
+"0","  geom_treemap() +"
+"0","  geom_treemap_text(color = ""white"", place = ""center"") +"
+"0","  scale_fill_gradientn(colors = palette(100)) +"
+"0","  labs(title = ""Treemap of Club by Yellow and Red Cards Recieved"", fill = ""Red Cards"")"

@@ -1,0 +1,4 @@
+"0","chelsea <- soccer_data[soccer_data$Club == ""Chelsea"", ]ggplot(soccer_data, aes(x = Goals)) +
+"
+"2","Error: unexpected symbol in ""chelsea <- soccer_data[soccer_data$Club == ""Chelsea"", ]ggplot""
+"
