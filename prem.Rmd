@@ -129,7 +129,7 @@ plot <- ggplot(pens_df, aes(x = Pens_Scored, y = Goals, size = Convert_Rate,
   geom_point(color = team_colors, alpha = 0.7) +
   scale_size_continuous(range = c(3,7)) +
   theme_minimal() +
-  labs(title = "Total Goals vs. Season Goals by Conversion Rate",
+  labs(title = "Total Goals vs. Penalty Goals by Conversion Rate",
     x = "Penalty Goals",
     y = "Total Season Goals",
     size = "Penalties Scored"
