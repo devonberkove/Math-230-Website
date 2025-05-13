@@ -9,10 +9,20 @@
 "0","  geom_point(color = team_colors, alpha = 0.7) +"
 "0","  scale_size_continuous(range = c(3,7)) +"
 "0","  theme_minimal() +"
-"0","  labs(title = ""Total Goals vs. Season Goals by Conversion Rate"","
+"0","  labs(title = ""Total Goals vs. Penalty Goals by Conversion Rate"","
 "0","    x = ""Penalty Goals"","
 "0","    y = ""Total Season Goals"","
 "0","    size = ""Penalties Scored"""
 "0","  )"
-"0",""
+"2","G1;H1;Errorh in ggplot(pens_df, aes(x = Pens_Scored, y = Goals, size = Convert_Rate,  : 
+  could not find function ""ggplot""
+Error during wrapup: not that many frames on the stack
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+g"
 "0","ggplotly(plot, tooltip = ""text"")"
+"2","G1;H1;Errorh in ggplotly(plot, tooltip = ""text"") : 
+  could not find function ""ggplotly""
+Error during wrapup: not that many frames on the stack
+g"
+"2","G1;H1;Errorh: no more error handlers available (recursive errors?); invoking 'abort' restart
+g"
