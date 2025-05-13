@@ -12,6 +12,10 @@ knitr::opts_chunk$set(echo = FALSE)
 # https://rstudio.github.io/distill/website.html
 
 # Learn more about publishing to GitHub Pages at:
+```
+
+
+```{r setup, include=FALSE}
 # https://rstudio.github.io/distill/publish_website.html#github-pages
 
 ```
